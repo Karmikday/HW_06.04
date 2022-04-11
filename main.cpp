@@ -1,21 +1,30 @@
 #include <iostream>
+#include "Fac.h"
+#include <typeinfo>
+#include <math.h>
 using namespace std;
 int main()
 {
 	double Y = 1;
-	double n = 0;
+	auto n = NULL;
 	cout << "Vvedite n->";
-	cin >> n;
-	for (size_t i = 0; i < n; i++)
+	cin >> n;	
+	if (typeid(n) == typeid(int) && n < 10)
 	{
-		if (floor(n) == n && n < 10)
+		cout << "Way 1" << endl;
+		Y = 0;
+		for (size_t i = 1; i <= n; i++)
 		{
-			Y += (1) / (pow(i, 5));
+			Y += 1/ pow(i, 5);
+		} 
+	}
+	else
+	{
+		cout << "Way 2" << endl;
+		for (size_t i = 1; i <= 10; i++)
+		{
+			Y *= (2 + (1 / Fac(i)));
 		}
 	}
-	for (size_t i = 0; i < 10; i++)
-	{
-		Y *= (2 + 1 / );
-	}
-
+	cout << "Answer =>" << Y << endl;
 }
